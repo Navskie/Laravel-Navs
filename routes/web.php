@@ -16,8 +16,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', [StudentController::class, 'index']);
-
 // Route::get();
 // Route::post();
 // Route::put();
@@ -79,4 +77,14 @@ Route::get('/', [StudentController::class, 'index']);
 
 // Route::get('/students', [StudentController::class, 'index']);
 
+// routes naming
+// index - show all data 
+// show singular data
+// create show a form
+// store - store a data
+// edit - update data
+// destroy - delete data
+
+Route::get('/', [StudentController::class, 'index']);
 Route::get('/students/{id}', [StudentController::class, 'show']);
+Route::get('/login', [StudentController::class, 'create']);
