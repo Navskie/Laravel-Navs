@@ -5,9 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student</title>
+  @vite('resources/css/app.css')
 </head>
 <body>
-  
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
   <table>
     <tr>
       <th>First Name</th>
