@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Students;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View as FacadesView;
 
 class StudentController extends Controller
 {
@@ -16,7 +18,7 @@ class StudentController extends Controller
       // $data = Students::where('age', '<=', 20)->get();
       // $data = Students::where('age', '<=', 20)->orderBy('fname', 'asc')->get();
       // $data = Students::where('age', '<=', 20)->orderBy('fname', 'desc')->get();
-      $data = Students::where('age', '<=', 20)->orderBy('fname', 'asc')->limit(5)->get();
+      // $data = Students::where('age', '<=', 20)->orderBy('fname', 'asc')->limit(5)->get();
 
       // $data = DB::table('students')
       // ->select(DB::raw('count(*) as gender_count, gender'))->groupBy('gender')
@@ -31,7 +33,10 @@ class StudentController extends Controller
 
       // $data = Students::where('id', 101)->firstOrFail()->get();
 
-      return view('students.index', ['students' => $data]);
+      // APP SERVICE PROVIDER
+      // return view('students.index', ['students' => $data]);
+      return view('students.index');
+      // END APP SERVICE PROVIDER
     }
 
     // public function show($id) {
@@ -40,7 +45,16 @@ class StudentController extends Controller
     //   return view('students.index', ['students' => $data]);
     // } 
 
-    public function create() {
-      return view('user.create');
+    public function login() {
+      if (FacadesView::exists('user.login')) {
+        return view('user.login');
+      } else {
+        return abort(404);
+        // return response()->view('missing.notfound');
+      }
+    }
+
+    public function register() {
+      return view('user.register');
     }
 }

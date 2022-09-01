@@ -87,4 +87,5 @@ use Illuminate\Http\Request;
 
 Route::get('/', [StudentController::class, 'index']);
 Route::get('/students/{id}', [StudentController::class, 'show']);
-Route::get('/login', [StudentController::class, 'create']);
+Route::get('/login', [StudentController::class, 'login']);
+Route::get('/register', [StudentController::class, 'register']);
