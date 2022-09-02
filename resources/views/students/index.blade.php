@@ -3,7 +3,7 @@
   $array = array('title' => 'Student System');
 ?>
 <x-__nav :data="$array"/>
-<x-message />
+
   <header class="max-w-lg mx-auto">
 
   </header>

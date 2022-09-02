@@ -85,9 +85,9 @@ use Illuminate\Http\Request;
 // edit - update data
 // destroy - delete data
 
-Route::get('/', [StudentController::class, 'index']);
+Route::get('/', [StudentController::class, 'index'])->middleware('auth');
 Route::get('/students/{id}', [StudentController::class, 'show']);
-Route::get('/login', [StudentController::class, 'login']);
+Route::get('/login', [StudentController::class, 'login'])->name('login')->middleware('guest');
 Route::get('/register', [StudentController::class, 'register']);
 Route::post('/login/process', [StudentController::class, 'process']);
 

@@ -72,6 +72,8 @@ class StudentController extends Controller
         $request->session()->regenerate();
         return redirect('/')->with('message', 'Welcome back boy');
       }
+
+      return back()->withErrors(['email' => 'Login Failed'])->onlyInput('email');
     }
 
     public function logout(Request $request) {
@@ -80,7 +82,7 @@ class StudentController extends Controller
       $request->session()->invalidate();
       $request->session()->regenerateToken();
 
-      return redirect('/')->with('message', 'Logout Successfully');
+      return redirect('/login')->with('message', 'Logout Successfully');
     }
 
     public function store_data(Request $request) {
