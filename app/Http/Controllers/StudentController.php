@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Students;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View as FacadesView;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -56,5 +59,33 @@ class StudentController extends Controller
 
     public function register() {
       return view('user.register');
+    }
+
+    public function logout(Request $request) {
+      auth()->logout();
+
+      $request->session()->invalidate();
+      $request->session()->regenerateToken();
+
+      return redirect('/')->with('message', 'Logout Successfully');
+    }
+
+    public function store_data(Request $request) {
+      // return dd($request);
+      $validated = $request->validate([
+        "name" => ['required', 'min: 4'],
+        "email" => ['required', 'email', Rule::unique('users', 'email')],
+        "password" => 'required|confirmed|min:6'
+        // "name sa database = condition"
+      ]);
+
+      $validated['password'] = Hash::make($validated['password']);
+
+      $user = User::create($validated);
+
+      // return $user;
+
+      auth()->login($user);
+
     }
 }

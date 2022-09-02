@@ -1,3 +1,4 @@
+@dd(auth()->user()->name)
 @include('partials.__header')
 <?php
   $array = array('title' => 'Student System');
