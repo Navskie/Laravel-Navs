@@ -2,17 +2,17 @@
   <div class="container flex flex-wrap justify-between items-center mx-auto">
     <a href="/">
       <span class="self-center text-xl font-semibold whitespace-nowrap">
-        Student System
+        {{ $data['title'] }}
       </span>
     </a>
     <button @click="open = !open" data-collapse-toggle="navbar-main" class="md:hidden">
       <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z"/></svg>
     </button>
     <div x-show="open" class="w-full md:block md:w-auto" id="navbar-main">
-      <x-__menu></x-__menu>
+      <x-__menu />
     </div>
     <div class="hidden w-full md:block md:w-auto" id="navbar-main">
-      <x-__menu></x-__menu>
+      <x-__menu />
     </div>
   </div>
 </nav>

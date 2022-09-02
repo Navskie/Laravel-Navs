@@ -1,5 +1,8 @@
 @include('partials.__header')
-@include('partials.__navbar')
+<?php
+  $array = array('title' => 'Student System');
+?>
+<x-__nav :data="$array"/>
   <header class="max-w-lg mx-auto">
 
   </header>
