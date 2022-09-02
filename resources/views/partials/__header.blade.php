@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ $title }}</title>
   @vite('resources/css/app.css')
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+  />
   <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body class="bg-gray-600 min-h-screen pt-12 px-2">
+<body>
 <x-message />
