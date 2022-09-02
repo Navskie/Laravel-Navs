@@ -89,6 +89,8 @@ Route::get('/', [StudentController::class, 'index']);
 Route::get('/students/{id}', [StudentController::class, 'show']);
 Route::get('/login', [StudentController::class, 'login']);
 Route::get('/register', [StudentController::class, 'register']);
+Route::post('/login/process', [StudentController::class, 'process']);
+
 Route::post('/logout', [StudentController::class, 'logout']);
 
 Route::post('/store_data', [StudentController::class, 'store_data']);

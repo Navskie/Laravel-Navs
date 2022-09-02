@@ -61,6 +61,19 @@ class StudentController extends Controller
       return view('user.register');
     }
 
+    public function process(Request $request) {
+      $validated = $request->validate([
+        "email" => ['required', 'email'],
+        "password" => 'required'
+        // "name sa database = condition"
+      ]);
+
+      if(auth()->attempt($validated)) {
+        $request->session()->regenerate();
+        return redirect('/')->with('message', 'Welcome back boy');
+      }
+    }
+
     public function logout(Request $request) {
       auth()->logout();
 
