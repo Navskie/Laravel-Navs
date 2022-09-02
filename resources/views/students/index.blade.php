@@ -1,12 +1,11 @@
 @include('partials.__header')
+@include('partials.__navbar')
   <header class="max-w-lg mx-auto">
-    <a href="#">
-      <h1 class="text=4x1 font-bold text-white text-center">Student List Login</h1>
-    </a>
+
   </header>
   <section class="mt-10">
     <div class="overflow-x-auto relarive">
-      <table class="w-full text-sm text-left text-gray-500">
+      <table class="w-96 mx-auto text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
             <th scope="col" class="py-3 px-6">

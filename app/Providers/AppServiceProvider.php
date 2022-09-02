@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('title', 'Stundent data system');
 
         View::composer('students.index', function ($view) {
-          $view->with('students' ,Students::where('age', '<=', 20)->orderBy('fname', 'asc')->limit(5)->get());
+          $view->with('students' ,Students::all());
         });
     }
 }
