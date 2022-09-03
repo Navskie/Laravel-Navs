@@ -102,5 +102,6 @@ class StudentController extends Controller
 
       auth()->login($user);
 
+      return redirect('/')->with('message', 'Registered Successfully');
     }
 }

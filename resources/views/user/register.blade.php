@@ -1,59 +1,278 @@
 @include('partials.__header')
-  <header class="max-w-lg mx-auto">
-    <a href="#">
-      <h1 class="text=4x1 font-bold text-white text-center">Create an account</h1>
-    </a>
-  </header>
-  <main class="bg-white mx-auto max-w-lg p-8 my-10 rounded-lg shadow-2x1">
-    <section>
-      <h3 class="font-bold text-2x1">Welcome to laravel student</h3>
-      <p class="text-gray-600 pt-2">Sign In to your account</p>
-    </section>
-    <section class="mt-10">
-      <form action="/store_data" method="POST" class="flex flex-col">
-        <!-- protection -->
-        @csrf
-        <!-- protection -->
-        <div class="mb-6 pt-3 rounded bg-gray-200">
-          <label for="name" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Name</label>
-          <input type="text" name="name" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" value={{ old('name') }}>
-          @error('name')
-            <p class="text-red-500 text-xs text-center">
-              {{ $message }}
-            </p>
-          @enderror
+  <div
+      class="min-h-screen flex flex-col items-center justify-center bg-gray-100"
+    >
+      <div
+        class="
+          flex flex-col
+          bg-white
+          shadow-md
+          px-4
+          sm:px-6
+          md:px-8
+          lg:px-10
+          py-8
+          rounded-3xl
+          w-50
+          max-w-md
+        "
+      >
+        <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
+          Be one of us
+        </div>
+        <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
+          Enter your credentials to access your account
         </div>
         @error('email')
-          <p class="text-red-500 text-xs text-center">
+          <p class="text-red-500 text-xs text-center mt-3">
             {{ $message }}
           </p>
         @enderror
-        <div class="mb-6 pt-3 rounded bg-gray-200">
-          <label for="Email" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Email</label>
-          <input type="email" name="email" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" value={{ old('email') }}>
+        @error('name')
+          <p class="text-red-500 text-xs text-center mt-3">
+            {{ $message }}
+          </p>
+        @enderror
+        <div class="mt-10">
+          <form action="/store_data" method="POST">
+          @csrf
+            <div class="flex flex-col mb-5">
+              
+              <label
+                for="name"
+                class="mb-1 text-xs tracking-wide text-gray-600"
+                >Full Name</label
+              >
+              <div class="relative">
+                <div
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                >
+                  <i class="fas fa-user text-blue-500"></i>
+                </div>
+
+                <input
+                  id="name"
+                  type="name"
+                  name="name"
+                  class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                  placeholder="Enter your fullname"
+                  value={{ old('name') }}>
+              </div>
+            </div>
+            <div class="flex flex-col mb-5">
+              
+              <label
+                for="email"
+                class="mb-1 text-xs tracking-wide text-gray-600"
+                >Email Address</label
+              >
+              <div class="relative">
+                <div
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                >
+                  <i class="fas fa-at text-blue-500"></i>
+                </div>
+
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                  placeholder="Enter your email"
+                  value={{ old('email') }}>
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="password"
+                class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                >Password:</label
+              >
+              <div class="relative">
+                <div
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                >
+                  <span>
+                    <i class="fas fa-lock text-blue-500"></i>
+                  </span>
+                </div>
+
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                  placeholder="Enter your password"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="password"
+                class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                >Retype Password:</label
+              >
+              <div class="relative">
+                <div
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                >
+                  <span>
+                    <i class="fas fa-lock text-blue-500"></i>
+                  </span>
+                </div>
+
+                <input
+                  id="password_confirmation"
+                  type="password_confirmation"
+                  name="password_confirmation"
+                  class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                  placeholder="Password confirmation"
+                />
+              </div>
+            </div>
+
+            <div class="flex w-full">
+              <button
+                class="
+                  flex
+                  mt-2
+                  items-center
+                  justify-center
+                  focus:outline-none
+                  text-white text-sm
+                  sm:text-base
+                  bg-blue-500
+                  hover:bg-blue-600
+                  rounded-2xl
+                  py-2
+                  w-full
+                  transition
+                  duration-150
+                  ease-in
+                "
+              >
+                <span class="mr-2 uppercase">Sign Up</span>
+                <span>
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </form>
         </div>
-        <div class="mb-6 pt-3 rounded bg-gray-200">
-          <label for="Password" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Password</label>
-          <input type="password" name="password" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" value={{ old('password') }}>
-          @error('password')
-            <p class="text-red-500 text-xs text-center">
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-        <div class="mb-6 pt-3 rounded bg-gray-200">
-          <label for="Password" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Confirm Password</label>
-          <input type="password" name="password_confirmation" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" value={{ old('password_confirmation') }}>
-          @error('password_confirmation')
-            <p class="text-red-500 text-xs text-center">
-              {{ $message }}
-            </p>
-          @enderror
-        </div>
-        <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200">Sign Up</button>
-        <br>
-        <a href="/login" class="text-center text-muted">Sign In</a>
-      </form>
-    </section>
-  </main>
+      </div>
+      <div class="flex justify-center items-center mt-6">
+        <a
+          href="#"
+          target="_blank"
+          class="
+            inline-flex
+            items-center
+            text-gray-700
+            font-medium
+            text-xs text-center
+          "
+        >
+          <span class="ml-2"
+            >You already have an account?
+            <a
+              href="/login"
+              class="text-xs ml-2 text-blue-500 font-semibold"
+              >Sign In</a
+            ></span
+          >
+        </a>
+      </div>
+    </div>
 @include('partials.__footer')
