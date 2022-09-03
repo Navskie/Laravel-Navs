@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
         //
         View::share('title', 'Stundent data system');
 
-        View::composer('students.index', function ($view) {
-          $view->with('students' ,Students::all());
-        });
+        // View::composer('students.index', function ($view) {
+        //   $view->with('students' ,Students::all());
+        // });
     }
 }

@@ -38,7 +38,8 @@ class StudentController extends Controller
 
       // APP SERVICE PROVIDER
       // return view('students.index', ['students' => $data]);
-      return view('students.index');
+      $data = array('students' => DB::table('students')->orderBy('created_at', 'desc')->Paginate(10));
+      return view('students.index', $data);
       // END APP SERVICE PROVIDER
     }
 

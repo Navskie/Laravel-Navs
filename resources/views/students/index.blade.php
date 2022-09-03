@@ -5,7 +5,7 @@
 <x-__nav :data="$array"/>
 
   <header class="max-w-lg mx-auto">
-  <br><br>
+  <br><br><br>
   </header>
   <section class="">
     <div class="p-7 h-screen bg-gray-100">
@@ -50,7 +50,12 @@
           </tr>
         @endforeach
         </tbody>
+        
       </table>
+      <br>
+      <div class="w-1/2 mx-auto">
+      {{$students->links()}}
+      </div>
     </div>
   </section>
 @include('partials.__footer')
