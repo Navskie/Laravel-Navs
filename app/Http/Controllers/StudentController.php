@@ -150,4 +150,10 @@ class StudentController extends Controller
 
       return back()->with('message', 'Data has been updated successfully');
     }
+
+    public function delete_process(Request $request, Students $student) {
+      // dd($request);
+      $student->delete();
+      return redirect('/')->with('message', 'data has been delete successfully');
+    }
 }

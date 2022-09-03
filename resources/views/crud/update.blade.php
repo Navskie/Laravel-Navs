@@ -315,6 +315,12 @@
                 </span>
               </button>
             </div>
+            
+            </div>
+          </form>
+          <form action="/crud/{{ $student->id }}" method="post">
+            @method('delete')
+            @csrf
             <div class="flex w-full">
               <button
                 class="
@@ -354,7 +360,6 @@
               </button>
             </div>
           </form>
-        </div>
       </div>
     </div>
 @include('partials.__footer')

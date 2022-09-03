@@ -99,3 +99,4 @@ Route::get('/crud/add', [StudentController::class, 'add']);
 Route::post('/crud/add', [StudentController::class, 'add_process']);
 Route::get('/crud/{student}', [StudentController::class, 'm_update']);
 Route::put('/crud/{student}', [StudentController::class, 'update_process']);
+Route::delete('/crud/{student}', [StudentController::class, 'delete_process']);
