@@ -126,4 +126,28 @@ class StudentController extends Controller
       return redirect('/')->with('message', 'Student has been added successfully');
 
     }
+
+    public function m_update($id) {
+      $data = Students::findOrFail($id);
+      // dd($data);
+      return view('crud.update', ['student' => $data]);
+    } 
+    public function update_process(Request $request, Students $student) {
+      $validated = $request->validate([
+        "fname" => ['required', 'min: 4'],
+        "lname" => ['required', 'min: 4'],
+        "age" => ['required'],
+        "gender" => ['required'],
+        "email" => ['required', 'email'],
+        // "name sa database = condition"
+      ]);
+
+      // dd($validated);
+
+      $student->update($validated);
+
+      // dd($validated);
+
+      return back()->with('message', 'Data has been updated successfully');
+    }
 }

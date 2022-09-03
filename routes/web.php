@@ -97,3 +97,5 @@ Route::post('/store_data', [StudentController::class, 'store_data']);
 
 Route::get('/crud/add', [StudentController::class, 'add']);
 Route::post('/crud/add', [StudentController::class, 'add_process']);
+Route::get('/crud/{student}', [StudentController::class, 'm_update']);
+Route::put('/crud/{student}', [StudentController::class, 'update_process']);

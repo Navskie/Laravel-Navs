@@ -27,6 +27,9 @@
             <th scope="col" class="p-3 text-sm font-semi-bold tracking-wide text-left">
               age
             </th>
+            <th scope="col" class="p-3 text-sm font-semi-bold tracking-wide text-left">
+              Action
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +49,9 @@
             </td>
             <td class="p-3 text-sm text-gray-700">
             {{ $student->age }}
+            </td>
+            <td class="p-3 text-sm text-gray-700">
+            <a href="/crud/{{ $student->id }}" class="bg-blue-400 px-2 py-1 rounded-lg text-white">view</a>
             </td>
           </tr>
         @endforeach
