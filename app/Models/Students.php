@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Students extends Model
 {
+    // protected $guarded = []; pag array
+    protected $guarded = []; #pag lahat
     use HasFactory;
 }

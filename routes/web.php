@@ -94,3 +94,6 @@ Route::post('/login/process', [StudentController::class, 'process']);
 Route::post('/logout', [StudentController::class, 'logout']);
 
 Route::post('/store_data', [StudentController::class, 'store_data']);
+
+Route::get('/crud/add', [StudentController::class, 'add']);
+Route::post('/crud/add', [StudentController::class, 'add_process']);

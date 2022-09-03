@@ -104,4 +104,25 @@ class StudentController extends Controller
 
       return redirect('/')->with('message', 'Registered Successfully');
     }
+
+    public function add() {
+      return view('crud.add')->with('title', 'Add New');
+    }
+    public function add_process(Request $request) {
+      // return dd($request);
+      $validated = $request->validate([
+        "fname" => ['required', 'min: 4'],
+        "lname" => ['required', 'min: 4'],
+        "age" => ['required'],
+        "gender" => ['required', 'min: 4'],
+        "email" => ['required', 'email', Rule::unique('students', 'email')]
+        // "name sa database = condition"
+      ]);
+
+      Students::create($validated);
+      // Students Database
+
+      return redirect('/')->with('message', 'Student has been added successfully');
+
+    }
 }
