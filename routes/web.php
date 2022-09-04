@@ -85,7 +85,7 @@ use Illuminate\Http\Request;
 // edit - update data
 // destroy - delete data
 
-Route::get('/', [StudentController::class, 'index'])->middleware('auth');
+// Route::get('/', [StudentController::class, 'index'])->middleware('auth');
 Route::get('/students/{id}', [StudentController::class, 'show']);
 Route::get('/login', [StudentController::class, 'login'])->name('login')->middleware('guest');
 Route::get('/register', [StudentController::class, 'register']);
@@ -95,8 +95,19 @@ Route::post('/logout', [StudentController::class, 'logout']);
 
 Route::post('/store_data', [StudentController::class, 'store_data']);
 
-Route::get('/crud/add', [StudentController::class, 'add']);
-Route::post('/crud/add', [StudentController::class, 'add_process']);
-Route::get('/crud/{student}', [StudentController::class, 'm_update']);
-Route::put('/crud/{student}', [StudentController::class, 'update_process']);
-Route::delete('/crud/{student}', [StudentController::class, 'delete_process']);
+// Route::get('/crud/add', [StudentController::class, 'add']);
+// Route::post('/crud/add', [StudentController::class, 'add_process']);
+// Route::get('/crud/{student}', [StudentController::class, 'm_update']);
+// Route::put('/crud/{student}', [StudentController::class, 'update_process']);
+// Route::delete('/crud/{student}', [StudentController::class, 'delete_process']);
+
+// for laravel 9 group route only {}
+##sample
+Route::controller(StudentController::class)->group(function() {
+  Route::get('/','index')->middleware('auth');
+  Route::get('/crud/add','add');
+  Route::post('/crud/add','add_process');
+  Route::get('/crud/{student}','m_update');
+  Route::put('/crud/{student}','update_process');
+  Route::delete('/crud/{student}','delete_process');
+});
